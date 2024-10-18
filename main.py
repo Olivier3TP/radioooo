@@ -17,18 +17,15 @@ class MyForm(QDialog):
         price = 0
         name = ""
         if self.ui.firstBox.isChecked():
-            price = 300
+            price += 300
             name = "pierwszej"
-        elif self.ui.biznesBox.isChecked():
-            price = 600
+        if self.ui.biznesBox.isChecked():
+            price += 600
             name = "biznes"
-        elif(self.ui.economicBox.isChecked()):
-            price = 20
+        if(self.ui.economicBox.isChecked()):
+            price += 20
             name = "ekonomicznej"
-        else:
-            price = 0
-            name = " "
-        self.ui.resultLabel.setText(f'Cena za twój bilet w klasie {name} to: {price} zł')
+        self.ui.resultLabel.setText(f'Cena za twój bilet to: {price} zł')
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
